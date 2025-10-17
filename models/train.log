@@ -1,0 +1,265 @@
+(dl_564_v2) C:\Users\Naris\Documents\KU\564 - DL\project\Final Project Repo>C:/Users/Naris/.conda/envs/dl_564_v2/python.exe "c:/Users/Naris/Documents/KU/564 - DL/project/Final Project Repo/scripts/[LSTM] 2 train model.py"
+============================================================
+FALL DETECTION LSTM TRAINING
+============================================================
+
+[1/9] Loading pkl files...
+Found 1024 pkl files
+Loaded 1024 persons
+
+[2/9] Applying forward-fill...
+Forward-fill complete
+
+[3/9] Creating windows...
+Fall windows: 344473
+No-fall windows: 544059
+
+[4/9] Balancing dataset...
+Balanced dataset shape: (592354, 48, 17, 3)
+Fall samples: 296177, No-fall samples: 296177
+
+[5/9] Splitting data...
+Training set: (473883, 48, 17, 3), Labels: (473883,)
+Test set: (118471, 48, 17, 3), Labels: (118471,)
+
+[6/9] Building model...
+2025-10-17 21:31:27.901356: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-10-17 21:31:28.046032: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1616] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 13510 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 4090 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 8.9
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ reshape (Reshape)           (None, 48, 51)            0
+
+ lstm (LSTM)                 (None, 48, 128)           92160
+
+ dropout (Dropout)           (None, 48, 128)           0
+
+ lstm_1 (LSTM)               (None, 64)                49408
+
+ dropout_1 (Dropout)         (None, 64)                0
+
+ dense (Dense)               (None, 32)                2080
+
+ dropout_2 (Dropout)         (None, 32)                0
+
+ dense_1 (Dense)             (None, 1)                 33
+
+=================================================================
+Total params: 143,681
+Trainable params: 143,681
+Non-trainable params: 0
+_________________________________________________________________
+
+[7/9] Training model...
+2025-10-17 21:31:29.390639: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 4640262336 exceeds 10% of free system memory.
+Epoch 1/50
+2025-10-17 21:31:32.034565: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8907
+2025-10-17 21:31:32.511199: I tensorflow/stream_executor/cuda/cuda_blas.cc:1614] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+14806/14809 [============================>.] - ETA: 0s - loss: 0.4418 - accuracy: 0.8084 - precision: 0.7487 - recall: 0.9285     
+Epoch 1: val_loss improved from inf to 0.40621, saving model to ./models\fall_detection_20251017_213109.h5
+14809/14809 [==============================] - 139s 9ms/step - loss: 0.4418 - accuracy: 0.8084 - precision: 0.7486 - recall: 0.9285 - val_loss: 0.4062 - val_accuracy: 0.8243 - val_precision: 0.7728 - val_recall: 0.9186
+Epoch 2/50
+14809/14809 [==============================] - ETA: 0s - loss: 0.3865 - accuracy: 0.8339 - precision: 0.7762 - recall: 0.9382  
+Epoch 2: val_loss improved from 0.40621 to 0.39402, saving model to ./models\fall_detection_20251017_213109.h5
+14809/14809 [==============================] - 183s 12ms/step - loss: 0.3865 - accuracy: 0.8339 - precision: 0.7762 - recall: 0.9382 - val_loss: 0.3940 - val_accuracy: 0.8256 - val_precision: 0.7753 - val_recall: 0.9169
+Epoch 3/50
+14806/14809 [============================>.] - ETA: 0s - loss: 0.3569 - accuracy: 0.8444 - precision: 0.7893 - recall: 0.9396  
+Epoch 3: val_loss improved from 0.39402 to 0.33526, saving model to ./models\fall_detection_20251017_213109.h5
+14809/14809 [==============================] - 202s 14ms/step - loss: 0.3569 - accuracy: 0.8444 - precision: 0.7893 - recall: 0.9396 - val_loss: 0.3353 - val_accuracy: 0.8546 - val_precision: 0.8128 - val_recall: 0.9214
+Epoch 4/50
+14808/14809 [============================>.] - ETA: 0s - loss: 0.3340 - accuracy: 0.8535 - precision: 0.8003 - recall: 0.9419  
+Epoch 4: val_loss improved from 0.33526 to 0.31750, saving model to ./models\fall_detection_20251017_213109.h5
+14809/14809 [==============================] - 205s 14ms/step - loss: 0.3340 - accuracy: 0.8535 - precision: 0.8004 - recall: 0.9419 - val_loss: 0.3175 - val_accuracy: 0.8586 - val_precision: 0.8057 - val_recall: 0.9452
+Epoch 5/50
+14808/14809 [============================>.] - ETA: 0s - loss: 0.3171 - accuracy: 0.8611 - precision: 0.8115 - recall: 0.9406  
+Epoch 5: val_loss improved from 0.31750 to 0.31109, saving model to ./models\fall_detection_20251017_213109.h5
+14809/14809 [==============================] - 198s 13ms/step - loss: 0.3171 - accuracy: 0.8611 - precision: 0.8115 - recall: 0.9406 - val_loss: 0.3111 - val_accuracy: 0.8618 - val_precision: 0.8179 - val_recall: 0.9309
+Epoch 6/50
+14807/14809 [============================>.] - ETA: 0s - loss: 0.3000 - accuracy: 0.8687 - precision: 0.8226 - recall: 0.9401  
+Epoch 6: val_loss improved from 0.31109 to 0.28842, saving model to ./models\fall_detection_20251017_213109.h5
+14809/14809 [==============================] - 199s 13ms/step - loss: 0.3000 - accuracy: 0.8687 - precision: 0.8226 - recall: 0.9401 - val_loss: 0.2884 - val_accuracy: 0.8717 - val_precision: 0.8273 - val_recall: 0.9394
+Epoch 7/50
+14807/14809 [============================>.] - ETA: 0s - loss: 0.2892 - accuracy: 0.8732 - precision: 0.8295 - recall: 0.9395  
+Epoch 7: val_loss did not improve from 0.28842
+14809/14809 [==============================] - 198s 13ms/step - loss: 0.2893 - accuracy: 0.8732 - precision: 0.8295 - recall: 0.9395 - val_loss: 0.2909 - val_accuracy: 0.8627 - val_precision: 0.8333 - val_recall: 0.9068
+Epoch 8/50
+14808/14809 [============================>.] - ETA: 0s - loss: 0.2950 - accuracy: 0.8709 - precision: 0.8269 - recall: 0.9382  
+Epoch 8: val_loss improved from 0.28842 to 0.27076, saving model to ./models\fall_detection_20251017_213109.h5
+14809/14809 [==============================] - 197s 13ms/step - loss: 0.2950 - accuracy: 0.8709 - precision: 0.8270 - recall: 0.9382 - val_loss: 0.2708 - val_accuracy: 0.8831 - val_precision: 0.8426 - val_recall: 0.9422
+Epoch 9/50
+14805/14809 [============================>.] - ETA: 0s - loss: 0.2703 - accuracy: 0.8817 - precision: 0.8429 - recall: 0.9383  
+Epoch 9: val_loss did not improve from 0.27076
+14809/14809 [==============================] - 199s 13ms/step - loss: 0.2703 - accuracy: 0.8817 - precision: 0.8429 - recall: 0.9383 - val_loss: 0.2746 - val_accuracy: 0.8785 - val_precision: 0.8288 - val_recall: 0.9541
+Epoch 10/50
+14809/14809 [==============================] - ETA: 0s - loss: 0.2612 - accuracy: 0.8859 - precision: 0.8479 - recall: 0.9407  
+Epoch 10: val_loss improved from 0.27076 to 0.23975, saving model to ./models\fall_detection_20251017_213109.h5
+14809/14809 [==============================] - 200s 13ms/step - loss: 0.2612 - accuracy: 0.8859 - precision: 0.8479 - recall: 0.9407 - val_loss: 0.2397 - val_accuracy: 0.8947 - val_precision: 0.8532 - val_recall: 0.9534
+Epoch 11/50
+14809/14809 [==============================] - ETA: 0s - loss: 0.2549 - accuracy: 0.8887 - precision: 0.8523 - recall: 0.9404  
+Epoch 11: val_loss did not improve from 0.23975
+14809/14809 [==============================] - 206s 14ms/step - loss: 0.2549 - accuracy: 0.8887 - precision: 0.8523 - recall: 0.9404 - val_loss: 0.2586 - val_accuracy: 0.8874 - val_precision: 0.8483 - val_recall: 0.9435
+Epoch 12/50
+14806/14809 [============================>.] - ETA: 0s - loss: 0.2485 - accuracy: 0.8915 - precision: 0.8561 - recall: 0.9413  
+Epoch 12: val_loss improved from 0.23975 to 0.23839, saving model to ./models\fall_detection_20251017_213109.h5
+14809/14809 [==============================] - 204s 14ms/step - loss: 0.2485 - accuracy: 0.8915 - precision: 0.8561 - recall: 0.9413 - val_loss: 0.2384 - val_accuracy: 0.8957 - val_precision: 0.8500 - val_recall: 0.9608
+Epoch 13/50
+14805/14809 [============================>.] - ETA: 0s - loss: 0.2427 - accuracy: 0.8945 - precision: 0.8611 - recall: 0.9408  
+Epoch 13: val_loss did not improve from 0.23839
+14809/14809 [==============================] - 204s 14ms/step - loss: 0.2427 - accuracy: 0.8945 - precision: 0.8611 - recall: 0.9408 - val_loss: 0.2411 - val_accuracy: 0.8942 - val_precision: 0.8564 - val_recall: 0.9473
+Epoch 14/50
+14806/14809 [============================>.] - ETA: 0s - loss: 0.2391 - accuracy: 0.8963 - precision: 0.8630 - recall: 0.9422  
+Epoch 14: val_loss improved from 0.23839 to 0.23696, saving model to ./models\fall_detection_20251017_213109.h5
+14809/14809 [==============================] - 209s 14ms/step - loss: 0.2391 - accuracy: 0.8963 - precision: 0.8630 - recall: 0.9422 - val_loss: 0.2370 - val_accuracy: 0.8983 - val_precision: 0.8710 - val_recall: 0.9350
+Epoch 15/50
+14806/14809 [============================>.] - ETA: 0s - loss: 0.2335 - accuracy: 0.8989 - precision: 0.8671 - recall: 0.9421  
+Epoch 15: val_loss improved from 0.23696 to 0.22425, saving model to ./models\fall_detection_20251017_213109.h5
+14809/14809 [==============================] - 200s 13ms/step - loss: 0.2335 - accuracy: 0.8989 - precision: 0.8671 - recall: 0.9422 - val_loss: 0.2243 - val_accuracy: 0.9000 - val_precision: 0.8573 - val_recall: 0.9596
+Epoch 16/50
+14809/14809 [==============================] - ETA: 0s - loss: 0.2293 - accuracy: 0.9011 - precision: 0.8700 - recall: 0.9431  
+Epoch 16: val_loss improved from 0.22425 to 0.21485, saving model to ./models\fall_detection_20251017_213109.h5
+14809/14809 [==============================] - 199s 13ms/step - loss: 0.2293 - accuracy: 0.9011 - precision: 0.8700 - recall: 0.9431 - val_loss: 0.2149 - val_accuracy: 0.9077 - val_precision: 0.8799 - val_recall: 0.9443
+Epoch 17/50
+14806/14809 [============================>.] - ETA: 0s - loss: 0.2255 - accuracy: 0.9026 - precision: 0.8733 - recall: 0.9419  
+Epoch 17: val_loss did not improve from 0.21485
+14809/14809 [==============================] - 182s 12ms/step - loss: 0.2255 - accuracy: 0.9026 - precision: 0.8733 - recall: 0.9419 - val_loss: 0.2202 - val_accuracy: 0.9018 - val_precision: 0.8666 - val_recall: 0.9499
+Epoch 18/50
+14804/14809 [============================>.] - ETA: 0s - loss: 0.2230 - accuracy: 0.9041 - precision: 0.8746 - recall: 0.9435  
+Epoch 18: val_loss improved from 0.21485 to 0.20941, saving model to ./models\fall_detection_20251017_213109.h5
+14809/14809 [==============================] - 140s 9ms/step - loss: 0.2230 - accuracy: 0.9041 - precision: 0.8746 - recall: 0.9435 - val_loss: 0.2094 - val_accuracy: 0.9105 - val_precision: 0.8763 - val_recall: 0.9559
+Epoch 19/50
+14806/14809 [============================>.] - ETA: 0s - loss: 0.2176 - accuracy: 0.9059 - precision: 0.8775 - recall: 0.9434  
+Epoch 19: val_loss improved from 0.20941 to 0.20283, saving model to ./models\fall_detection_20251017_213109.h5
+14809/14809 [==============================] - 144s 10ms/step - loss: 0.2176 - accuracy: 0.9059 - precision: 0.8775 - recall: 0.9434 - val_loss: 0.2028 - val_accuracy: 0.9111 - val_precision: 0.8785 - val_recall: 0.9542
+Epoch 20/50
+14804/14809 [============================>.] - ETA: 0s - loss: 0.2136 - accuracy: 0.9081 - precision: 0.8804 - recall: 0.9445  
+Epoch 20: val_loss did not improve from 0.20283
+14809/14809 [==============================] - 140s 9ms/step - loss: 0.2137 - accuracy: 0.9081 - precision: 0.8804 - recall: 0.9445 - val_loss: 0.2355 - val_accuracy: 0.8994 - val_precision: 0.8586 - val_recall: 0.9563
+Epoch 21/50
+14806/14809 [============================>.] - ETA: 0s - loss: 0.2136 - accuracy: 0.9089 - precision: 0.8813 - recall: 0.9451  
+Epoch 21: val_loss did not improve from 0.20283
+14809/14809 [==============================] - 139s 9ms/step - loss: 0.2136 - accuracy: 0.9089 - precision: 0.8813 - recall: 0.9451 - val_loss: 0.2057 - val_accuracy: 0.9117 - val_precision: 0.8758 - val_recall: 0.9595
+Epoch 22/50
+14807/14809 [============================>.] - ETA: 0s - loss: 0.2156 - accuracy: 0.9083 - precision: 0.8812 - recall: 0.9438  
+Epoch 22: val_loss did not improve from 0.20283
+14809/14809 [==============================] - 139s 9ms/step - loss: 0.2156 - accuracy: 0.9083 - precision: 0.8812 - recall: 0.9438 - val_loss: 0.2102 - val_accuracy: 0.9108 - val_precision: 0.8812 - val_recall: 0.9497
+Epoch 23/50
+14807/14809 [============================>.] - ETA: 0s - loss: 0.2106 - accuracy: 0.9103 - precision: 0.8836 - recall: 0.9451  
+Epoch 23: val_loss improved from 0.20283 to 0.19280, saving model to ./models\fall_detection_20251017_213109.h5
+14809/14809 [==============================] - 138s 9ms/step - loss: 0.2106 - accuracy: 0.9103 - precision: 0.8836 - recall: 0.9451 - val_loss: 0.1928 - val_accuracy: 0.9177 - val_precision: 0.8891 - val_recall: 0.9544
+Epoch 24/50
+14805/14809 [============================>.] - ETA: 0s - loss: 0.2085 - accuracy: 0.9113 - precision: 0.8841 - recall: 0.9468  
+Epoch 24: val_loss improved from 0.19280 to 0.19023, saving model to ./models\fall_detection_20251017_213109.h5
+14809/14809 [==============================] - 141s 10ms/step - loss: 0.2085 - accuracy: 0.9113 - precision: 0.8841 - recall: 0.9468 - val_loss: 0.1902 - val_accuracy: 0.9192 - val_precision: 0.8869 - val_recall: 0.9608
+Epoch 25/50
+14805/14809 [============================>.] - ETA: 0s - loss: 0.2071 - accuracy: 0.9117 - precision: 0.8860 - recall: 0.9451  
+Epoch 25: val_loss did not improve from 0.19023
+14809/14809 [==============================] - 164s 11ms/step - loss: 0.2071 - accuracy: 0.9117 - precision: 0.8860 - recall: 0.9451 - val_loss: 0.1962 - val_accuracy: 0.9173 - val_precision: 0.8899 - val_recall: 0.9525
+Epoch 26/50
+14807/14809 [============================>.] - ETA: 0s - loss: 0.2053 - accuracy: 0.9133 - precision: 0.8884 - recall: 0.9454  
+Epoch 26: val_loss did not improve from 0.19023
+14809/14809 [==============================] - 196s 13ms/step - loss: 0.2053 - accuracy: 0.9133 - precision: 0.8883 - recall: 0.9454 - val_loss: 0.1982 - val_accuracy: 0.9161 - val_precision: 0.8859 - val_recall: 0.9553
+Epoch 27/50
+14807/14809 [============================>.] - ETA: 0s - loss: 0.2022 - accuracy: 0.9146 - precision: 0.8898 - recall: 0.9464  
+Epoch 27: val_loss did not improve from 0.19023
+14809/14809 [==============================] - 201s 14ms/step - loss: 0.2022 - accuracy: 0.9146 - precision: 0.8898 - recall: 0.9464 - val_loss: 0.1951 - val_accuracy: 0.9168 - val_precision: 0.8937 - val_recall: 0.9462
+Epoch 28/50
+14808/14809 [============================>.] - ETA: 0s - loss: 0.2124 - accuracy: 0.9104 - precision: 0.8850 - recall: 0.9435  
+Epoch 28: val_loss did not improve from 0.19023
+14809/14809 [==============================] - 177s 12ms/step - loss: 0.2124 - accuracy: 0.9104 - precision: 0.8850 - recall: 0.9435 - val_loss: 0.2051 - val_accuracy: 0.9107 - val_precision: 0.8766 - val_recall: 0.9559
+Epoch 29/50
+14804/14809 [============================>.] - ETA: 0s - loss: 0.2065 - accuracy: 0.9125 - precision: 0.8862 - recall: 0.9465  
+Epoch 29: val_loss did not improve from 0.19023
+14809/14809 [==============================] - 170s 11ms/step - loss: 0.2065 - accuracy: 0.9125 - precision: 0.8862 - recall: 0.9465 - val_loss: 0.1988 - val_accuracy: 0.9162 - val_precision: 0.8920 - val_recall: 0.9470
+Epoch 30/50
+14808/14809 [============================>.] - ETA: 0s - loss: 0.2024 - accuracy: 0.9147 - precision: 0.8897 - recall: 0.9469  
+Epoch 30: val_loss did not improve from 0.19023
+14809/14809 [==============================] - 203s 14ms/step - loss: 0.2024 - accuracy: 0.9147 - precision: 0.8897 - recall: 0.9469 - val_loss: 0.2106 - val_accuracy: 0.9092 - val_precision: 0.8821 - val_recall: 0.9447
+Epoch 31/50
+14809/14809 [==============================] - ETA: 0s - loss: 0.2044 - accuracy: 0.9142 - precision: 0.8896 - recall: 0.9457  
+Epoch 31: val_loss improved from 0.19023 to 0.18745, saving model to ./models\fall_detection_20251017_213109.h5
+14809/14809 [==============================] - 180s 12ms/step - loss: 0.2044 - accuracy: 0.9142 - precision: 0.8896 - recall: 0.9457 - val_loss: 0.1875 - val_accuracy: 0.9203 - val_precision: 0.8857 - val_recall: 0.9652
+Epoch 32/50
+14808/14809 [============================>.] - ETA: 0s - loss: 0.1995 - accuracy: 0.9164 - precision: 0.8917 - recall: 0.9478  
+Epoch 32: val_loss did not improve from 0.18745
+14809/14809 [==============================] - 184s 12ms/step - loss: 0.1995 - accuracy: 0.9164 - precision: 0.8917 - recall: 0.9478 - val_loss: 0.1912 - val_accuracy: 0.9185 - val_precision: 0.8894 - val_recall: 0.9559
+Epoch 33/50
+14808/14809 [============================>.] - ETA: 0s - loss: 0.2021 - accuracy: 0.9152 - precision: 0.8912 - recall: 0.9460  
+Epoch 33: val_loss did not improve from 0.18745
+14809/14809 [==============================] - 145s 10ms/step - loss: 0.2021 - accuracy: 0.9152 - precision: 0.8912 - recall: 0.9460 - val_loss: 0.2115 - val_accuracy: 0.9096 - val_precision: 0.8842 - val_recall: 0.9427
+Epoch 34/50
+14809/14809 [==============================] - ETA: 0s - loss: 0.2055 - accuracy: 0.9141 - precision: 0.8900 - recall: 0.9452  
+Epoch 34: val_loss did not improve from 0.18745
+14809/14809 [==============================] - 153s 10ms/step - loss: 0.2055 - accuracy: 0.9141 - precision: 0.8900 - recall: 0.9452 - val_loss: 0.1876 - val_accuracy: 0.9185 - val_precision: 0.8921 - val_recall: 0.9521
+Epoch 35/50
+14807/14809 [============================>.] - ETA: 0s - loss: 0.2061 - accuracy: 0.9143 - precision: 0.8909 - recall: 0.9443  
+Epoch 35: val_loss improved from 0.18745 to 0.18739, saving model to ./models\fall_detection_20251017_213109.h5
+14809/14809 [==============================] - 149s 10ms/step - loss: 0.2060 - accuracy: 0.9143 - precision: 0.8909 - recall: 0.9443 - val_loss: 0.1874 - val_accuracy: 0.9231 - val_precision: 0.8974 - val_recall: 0.9555
+Epoch 36/50
+14805/14809 [============================>.] - ETA: 0s - loss: 0.2032 - accuracy: 0.9154 - precision: 0.8912 - recall: 0.9463  
+Epoch 36: val_loss did not improve from 0.18739
+14809/14809 [==============================] - 145s 10ms/step - loss: 0.2032 - accuracy: 0.9154 - precision: 0.8912 - recall: 0.9463 - val_loss: 0.1880 - val_accuracy: 0.9207 - val_precision: 0.8931 - val_recall: 0.9558
+Epoch 37/50
+14809/14809 [==============================] - ETA: 0s - loss: 0.2157 - accuracy: 0.9098 - precision: 0.8857 - recall: 0.9411  
+Epoch 37: val_loss did not improve from 0.18739
+14809/14809 [==============================] - 146s 10ms/step - loss: 0.2157 - accuracy: 0.9098 - precision: 0.8857 - recall: 0.9411 - val_loss: 0.2454 - val_accuracy: 0.8960 - val_precision: 0.8725 - val_recall: 0.9274
+Epoch 38/50
+14804/14809 [============================>.] - ETA: 0s - loss: 0.2956 - accuracy: 0.8737 - precision: 0.8431 - recall: 0.9184  
+Epoch 38: val_loss did not improve from 0.18739
+14809/14809 [==============================] - 145s 10ms/step - loss: 0.2957 - accuracy: 0.8737 - precision: 0.8430 - recall: 0.9184 - val_loss: 0.4507 - val_accuracy: 0.7977 - val_precision: 0.7544 - val_recall: 0.8829
+Epoch 39/50
+14805/14809 [============================>.] - ETA: 0s - loss: 0.4375 - accuracy: 0.8081 - precision: 0.7523 - recall: 0.9185  
+Epoch 39: val_loss did not improve from 0.18739
+14809/14809 [==============================] - 145s 10ms/step - loss: 0.4375 - accuracy: 0.8081 - precision: 0.7523 - recall: 0.9185 - val_loss: 0.4393 - val_accuracy: 0.8060 - val_precision: 0.7439 - val_recall: 0.9334
+Epoch 40/50
+14807/14809 [============================>.] - ETA: 0s - loss: 0.4705 - accuracy: 0.7901 - precision: 0.7359 - recall: 0.9052  
+Epoch 40: val_loss did not improve from 0.18739
+14809/14809 [==============================] - 146s 10ms/step - loss: 0.4705 - accuracy: 0.7901 - precision: 0.7359 - recall: 0.9052 - val_loss: 0.4600 - val_accuracy: 0.7937 - val_precision: 0.7282 - val_recall: 0.9371
+Epoch 41/50
+14808/14809 [============================>.] - ETA: 0s - loss: 0.4790 - accuracy: 0.7858 - precision: 0.7315 - recall: 0.9030  
+Epoch 41: val_loss did not improve from 0.18739
+14809/14809 [==============================] - 147s 10ms/step - loss: 0.4790 - accuracy: 0.7858 - precision: 0.7315 - recall: 0.9030 - val_loss: 0.4673 - val_accuracy: 0.7917 - val_precision: 0.7317 - val_recall: 0.9212
+Epoch 42/50
+14809/14809 [==============================] - ETA: 0s - loss: 0.4668 - accuracy: 0.7941 - precision: 0.7351 - recall: 0.9197  
+Epoch 42: val_loss did not improve from 0.18739
+14809/14809 [==============================] - 146s 10ms/step - loss: 0.4668 - accuracy: 0.7941 - precision: 0.7351 - recall: 0.9197 - val_loss: 0.4527 - val_accuracy: 0.8019 - val_precision: 0.7383 - val_recall: 0.9352
+Epoch 43/50
+14807/14809 [============================>.] - ETA: 0s - loss: 0.4749 - accuracy: 0.7892 - precision: 0.7308 - recall: 0.9156  
+Epoch 43: val_loss did not improve from 0.18739
+14809/14809 [==============================] - 183s 12ms/step - loss: 0.4749 - accuracy: 0.7892 - precision: 0.7308 - recall: 0.9156 - val_loss: 0.4546 - val_accuracy: 0.8039 - val_precision: 0.7393 - val_recall: 0.9389
+Epoch 44/50
+14809/14809 [==============================] - ETA: 0s - loss: 0.4653 - accuracy: 0.7945 - precision: 0.7349 - recall: 0.9212  
+Epoch 44: val_loss did not improve from 0.18739
+14809/14809 [==============================] - 222s 15ms/step - loss: 0.4653 - accuracy: 0.7945 - precision: 0.7349 - recall: 0.9212 - val_loss: 0.4695 - val_accuracy: 0.7886 - val_precision: 0.7331 - val_recall: 0.9074
+Epoch 45/50
+14807/14809 [============================>.] - ETA: 0s - loss: 0.4716 - accuracy: 0.7922 - precision: 0.7355 - recall: 0.9124Restoring model weights from the end of the best epoch: 35.
+
+Epoch 45: val_loss did not improve from 0.18739
+14809/14809 [==============================] - 227s 15ms/step - loss: 0.4716 - accuracy: 0.7922 - precision: 0.7355 - recall: 0.9124 - val_loss: 0.4592 - val_accuracy: 0.7957 - val_precision: 0.7387 - val_recall: 0.9149
+Epoch 45: early stopping
+
+Model saved to: ./models/fall_detection_20251017_213109.h5
+
+[8/9] Evaluating model...
+
+============================================================
+MODEL EVALUATION RESULTS
+============================================================
+Test Loss:      0.1874
+Test Accuracy:  0.9231
+Test Precision: 0.8974
+Test Recall:    0.9555
+============================================================
+
+[9/9] Creating visualizations...
+Training history plot saved to: ./models/his_20251017_213109.png
+Confusion matrix saved to: ./models/cf_20251017_213109.png
+
+============================================================
+TRAINING COMPLETE!
+============================================================
+Model saved: ./models/fall_detection_20251017_213109.h5
+Training history plot: ./models/his_20251017_213109.png
+Confusion matrix: ./models/cf_20251017_213109.png
+============================================================

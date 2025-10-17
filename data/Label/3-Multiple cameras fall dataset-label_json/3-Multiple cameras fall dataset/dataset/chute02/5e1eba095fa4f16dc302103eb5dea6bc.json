@@ -1,0 +1,17 @@
+{
+  "video_hash": "5e1eba095fa4f16dc302103eb5dea6bc",
+  "video_metadata": {
+    "filename": "cam5.avi",
+    "width": 720,
+    "height": 480,
+    "fps": 24,
+    "total_frames": 166,
+    "color_mode": "BGR",
+    "total_duration_seconds": 6.92,
+    "camera_angle": "",
+    "environment": "",
+    "video_quality": "",
+    "number_of_person": 0
+  },
+  "persons": []
+}
