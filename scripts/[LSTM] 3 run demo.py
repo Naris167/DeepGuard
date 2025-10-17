@@ -322,14 +322,14 @@ def main():
                                 print(f"  Saving {len(frames_to_save)} frames for person {track_id}...")
                                 save_fall_frames(cap, frames_to_save, output_folder, 
                                                track_id, smoothed_prediction)
-                                # result = notifier.send_fall_detection_alert(
-                                #             camera_id="CAM-03-stairs",
-                                #             location="บันได",
-                                #             timestamp=datetime.now(),
-                                #             message="⚠️ กรุณารีบตรวจสอบทันที!",
-                                #             group_id="Cf7291686ec355f681be9fc4df8b23f4f"  # Specific group
-                                #         )
-                                # print(result)
+                                result = notifier.send_fall_detection_alert(
+                                            camera_id="CAM-03-stairs",
+                                            location="บันได",
+                                            timestamp=datetime.now(),
+                                            message="⚠️ กรุณารีบตรวจสอบทันที!",
+                                            group_id="Cf7291686ec355f681be9fc4df8b23f4f"  # Specific group
+                                        )
+                                print(result)
                     
                     # Draw bbox
                     draw_bbox(frame, bbox, is_fall, track_id)
