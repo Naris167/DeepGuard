@@ -16,7 +16,9 @@ LSTM_MODEL_PATH = "./models/fall_detection_20251017_213109.h5"  # CHANGE THIS to
 YOLO_MODEL_PATH = "./models/yolo11l-pose.pt"
 
 # Video path
-VIDEO_PATH = "./demos/scenario/[MEDIUM] - cam3-2.avi"  # CHANGE THIS
+VIDEO_PATH = "./demos/scenario/[EASY] - 284e4bc1-cae2-4c34-a35c-35e0ccd7d2b7.mp4"
+# VIDEO_PATH = "./demos/scenario/[MEDIUM] - cam3-2.avi"
+# VIDEO_PATH = "./demos/scenario/[HARD] - 51ac0ab5-5c19-44a5-beef-2a71ed2612ae.mp4"
 
 # Parameters
 WINDOW_SIZE = 48  # frames
@@ -26,7 +28,7 @@ SMOOTHING_WINDOW = 3  # moving average of last 4 predictions
 CONFIDENCE_THRESHOLD = 0.5  # threshold for fall detection
 
 # Visualization
-SHOW_BBOX = True  # Set to False to hide bounding boxes
+SHOW_BBOX = False  # Set to False to hide bounding boxes
 
 notifier = LineNotifier(env_path="./scripts/.env")
 
